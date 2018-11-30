@@ -1,0 +1,27 @@
+.container{
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    padding-top:8%;
+}
+
+p {
+    font-family: Lato;
+  }
+
+.form-group button{
+    display: block;width:100%;
+    cursor: pointer;
+	opacity: 1;
+	-webkit-transition: background-color .2s ease;
+	transition: background-color .2s ease;
+}
+
+@media (max-width:767px){
+    .container{
+          padding-top:73px;
+    }
+    
+}
+
+
