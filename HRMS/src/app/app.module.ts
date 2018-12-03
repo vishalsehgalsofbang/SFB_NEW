@@ -8,7 +8,6 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavBarFixComponent } from './nav-bar-fix/nav-bar-fix.component';
-import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -16,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    
    ],
   declarations: [
     AppComponent,
@@ -26,6 +25,6 @@ import { AppRoutingModule } from './app-routing.module';
    NavBarFixComponent
   ],
   providers: [LoginService],
-  bootstrap: [ AppComponent ,AppRoutingModule]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
