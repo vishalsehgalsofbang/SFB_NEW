@@ -1,9 +1,0 @@
-body {
-    min-height: 2000px;
-    padding-top: 70px;
-  }
-  @media (max-width:767px){
-    .navbar{min-height:70px;}
-    
-    
-}
