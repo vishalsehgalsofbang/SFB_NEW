@@ -31,10 +31,11 @@ export class LoginComponent implements OnInit {
       "password": this.model.password
     };
 
-    // calling the services here with getDetails() inside and wanted to do any sort of animations we can
+    // calling the services methods getDetails() inside and wanted to do any sort of actions or decisions
 
     this.loginService.getDetails(jsonObj).subscribe((data: {}) => {
     this.detailsRec = {};
+
     //  console.log(data);  testing purpose
     if(this.detailsRec === ''){
       
@@ -54,6 +55,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
   }
 
 }

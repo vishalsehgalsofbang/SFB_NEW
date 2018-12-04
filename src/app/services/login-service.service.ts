@@ -27,7 +27,7 @@ export class LoginServiceService {
   
   getDetails(jsonObj): Observable<any> {
     console.log(jsonObj);
-    return this.http.post<any>(this.endpoint + 'jsonObj' + JSON.stringify(jsonObj), this.httpOptions).pipe(
+    return this.http.post<any>(this.endpoint + 'jsonObj' + jsonObj, this.httpOptions).pipe(
       map(this.extractData)
       );
   }

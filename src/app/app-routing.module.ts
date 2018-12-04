@@ -10,7 +10,7 @@ const appRoutes: Routes = [
   { path:'', redirectTo:'/login', pathMatch:'full'},
   { path:'layout', component: LayoutComponent },
   { path:'navbar', component: NavbarComponent },
-  { path:'login' , component: LoginComponent },
+  { path:'login' , component: LoginComponent, },
   { path:'footer' , component: FooterComponent },
   { path: 'homepage', component: HomepageComponent}
   
