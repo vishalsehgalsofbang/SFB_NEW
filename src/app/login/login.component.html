@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Login Here!</h2>
+    <form #heroForm="ngForm">
+      <div class="form-group">
+        <label for="email">EMAIL ID:</label>
+        <input type="email" class="form-control" id="email" name="email" required minlength="15" pattern="[^ @]*@[^ @]*" [(ngModel)]="model.email"  #email="ngModel">
+        <!--<div [hidden]="email.valid || email.pristine" class="alert alert-danger"> Email is required.</div>-->
+         <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+          <div *ngIf="email.errors.required">Email is required.</div>
+          <div *ngIf="email.errors.pattern">Email is not in apt format as "example@example.com"</div>
+          <div *ngIf="email.errors.minlength"> Email must be at least 24 characters long.</div>
+        </div>
+      </div>
+     <div class="form-group">
+        <label for="pass">PASSWORD :</label>
+        <input type="password" class="form-control" id="pass" name="pass" required minlength="5" [(ngModel)]="model.password"  #pass1="ngModel" >
+       <!-- <div [hidden]="pass1.valid || pass1.pristine" class="alert alert-danger">Password is required.</div>-->
+       <div *ngIf="pass1.invalid && (pass1.dirty || pass1.touched)" class="alert alert-danger">
+          <div *ngIf="pass1.errors.required">Password is required.</div>
+          <div *ngIf="pass1.errors.minlength"> Password must be at least 10 characters long.</div>
+        </div>
+      </div>
+      <div class="form-group">
+      <button id="btn" type="submit" class="btn btn-success" (click) ="onSubmit()"><span class="glyphicon glyphicon-log-in" style="padding-right:8px;"></span>Login</button>
+      </div>
+      <div *ngIf="onSubmit.invalid" class="alert alert-danger"> Credentials Error Try Again!</div>
+      <div *ngIf="onSubmit.valid" class="alert alert-success"> Succesfully Logged In.</div>
+    </form>
+  </div>
+  
