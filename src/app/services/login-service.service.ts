@@ -27,12 +27,12 @@ export class LoginServiceService {
   }
   
   getDetails(jsonObj): Observable<any> {
-    console.log(jsonObj);
+    //console.log(jsonObj);
     return this.http.post<any>(this.endpoint ,  jsonObj, this.httpOptions).pipe(
       map(this.extractData)
       );
 
-      console.log(this.extractData);
+      //console.log(this.extractData);
   }
   
 

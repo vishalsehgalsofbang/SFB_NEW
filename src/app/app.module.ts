@@ -10,6 +10,8 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AboutComponent } from './about/about.component';
+import { HrmsComponent } from './hrms/hrms.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HomepageComponent } from './homepage/homepage.component';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    HomepageComponent
+    HomepageComponent,
+    AboutComponent,
+    HrmsComponent
   ],
   imports: [
     BrowserModule,

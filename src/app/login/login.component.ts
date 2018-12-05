@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
 
       detailsRec.resp.push(data) ;
 
-      console.log("Inside detailsRec",JSON.stringify(detailsRec));    // 
+      console.log("Inside detailsRec",JSON.stringify(detailsRec));    
       // this.route.navigate(['/homepage']);    // after succesful login redirects to homepage 
     
 

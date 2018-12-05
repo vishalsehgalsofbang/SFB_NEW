@@ -7,15 +7,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="homepage.html">SOFBANG</a>
+        <a class="navbar-brand" routerLink="/login">SOFBANG</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav spanme">
           <li class="active"><a href="#"><span class="glyphicon glyphicon-home" style="padding-right:10px;"></span>Home</a></li>
-          <li><a href=""><span class="glyphicon glyphicon-bookmark" style="padding-right:10px;"></span>About</a></li>
-          <li><a href=""><span class="glyphicon glyphicon-lock" style="padding-right:10px;"></span>HRMS</a></li>
-          <li><a href=""><span class="glyphicon glyphicon-book" style="padding-right:10px;"></span>LMS</a></li>
-          <li class="disabled"><a href="reports.html"><span class="glyphicon glyphicon-wrench" style="padding-right:10px;"></span>Reports</a></li>
+          <li><a routerLink="/about"><span class="glyphicon glyphicon-bookmark" style="padding-right:10px;"></span>About</a></li>
+          <li><a routerLink="/hrms"><span class="glyphicon glyphicon-lock" style="padding-right:10px;"></span>HRMS</a></li>
+          <li><a routerLink="/lms"><span class="glyphicon glyphicon-book" style="padding-right:10px;"></span>LMS</a></li>
+          <li class="disabled"><a routerLink="/login"><span class="glyphicon glyphicon-wrench" style="padding-right:10px;"></span>Reports</a></li>
   
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -32,3 +32,4 @@
       </div><!--/.nav-collapse -->
     </div>
   </nav>
+  <router-outlet></router-outlet>
