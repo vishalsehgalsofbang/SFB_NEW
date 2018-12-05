@@ -11,7 +11,8 @@ export class LoginServiceService {
   endpoint = 'https://sofbanguccics-sofbangucc.uscom-central-1.oraclecloud.com/ic/api/integration/v1/flows/rest/AUTHORIZATION/2.0/login';
    httpOptions = {
    headers: new HttpHeaders({
-    'Content-Type':  'application/json',
+      
+     'Content-Type':  'application/json',
      'Authorization' : 'Basic cmFodWwuZ29naWFAc29mYmFuZy5jb206TWFyczEyNDg='
       })
    };
@@ -27,24 +28,26 @@ export class LoginServiceService {
   
   getDetails(jsonObj): Observable<any> {
     console.log(jsonObj);
-    return this.http.post<any>(this.endpoint + 'jsonObj' + jsonObj, this.httpOptions).pipe(
+    return this.http.post<any>(this.endpoint ,  jsonObj, this.httpOptions).pipe(
       map(this.extractData)
       );
+
+      console.log(this.extractData);
   }
   
 
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
+  // private handleError<T> (operation = 'operation', result?: T) {
+  //   return (error: any): Observable<T> => {
   
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+  //     // TODO: send the error to remote logging infrastructure
+  //     console.error(error); // log to console instead
   
-      // TODO: better job of transforming error for user consumption
-      console.log(`${operation} failed: ${error.message}`);
+  //     // TODO: better job of transforming error for user consumption
+  //     console.log(`${operation} failed: ${error.message}`);
   
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  }
+  //     // Let the app keep running by returning an empty result.
+  //     return of(result as T);
+  //   };
+  // }
   
 }

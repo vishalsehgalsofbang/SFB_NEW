@@ -12,13 +12,15 @@ export class LoginComponent implements OnInit {
 
   pwd = ['Really Smart', 'Super Flexible'];
    
-  detailsRec: any = {};
+  //detailsRec: any = {};
 
 
   model = new Login('fname.lname@example.com', this.pwd[0]);
 
 
   submitted = false;
+
+  msg : any;
 
   constructor(public loginService : LoginServiceService, private route: Router) { 
 
@@ -34,22 +36,35 @@ export class LoginComponent implements OnInit {
     // calling the services methods getDetails() inside and wanted to do any sort of actions or decisions
 
     this.loginService.getDetails(jsonObj).subscribe((data: {}) => {
-    this.detailsRec = {};
-
-    //  console.log(data);  testing purpose
-    if(this.detailsRec === ''){
+      //console.log(data);   // imnportant turning point
       
-      this.detailsRec = data;    // data rec. in an obj known as detailsRec type of array. 
-      this.submitted = true;
+      let detailsRec = {
+        "resp" : []
+      };
+
+      detailsRec.resp.push(data) ;
+
+      console.log("Inside detailsRec",JSON.stringify(detailsRec));    // 
+      // this.route.navigate(['/homepage']);    // after succesful login redirects to homepage 
+    
+
+    // console.log(data);  testing purpose
+    
+    if(detailsRec.resp[0].message=="login successfully"){
+      console.log("inside if condition");
+    //  detailsRec = data;    // data rec. in an obj known as detailsRec type of array. 
+      
       this.route.navigate(['/homepage']);    // after succesful login redirects to homepage 
 
-    }else() => {
-
-      this.detailsRec = data;    // data rec. in an obj known as detailsRec type of array. 
-      this.submitted = false;
-      this.route.navigate(['/login']);  // else redirect to a specific activity
-
-          }
+    }else{
+     console.log("in else");
+     // detailsRec = data;    // data rec. in an obj known as detailsRec type of array. 
+      this.submitted = true;
+      this.msg = detailsRec.resp[0].message;
+      //this.route.navigate(['/login']);  // else redirect to a specific activity
+      
+      
+      }
     
     });
   }
