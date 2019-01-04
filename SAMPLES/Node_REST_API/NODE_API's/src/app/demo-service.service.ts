@@ -25,6 +25,7 @@ export class DemoServiceService {
     let body = res;
     return body || { };
   }
+  
 
   getyearlyactivemanagers(): Observable<any>{
     
@@ -32,8 +33,8 @@ export class DemoServiceService {
 
    };
 
-  getRootResponse():Observable<any>{
-    return this.http.get(this.endpoint + '').pipe(map(this.extractData));
+  getManagersCount():Observable<any>{
+    return this.http.get(this.endpoint + 'getManagerCountList').pipe(map(this.extractData));
   }
   
 

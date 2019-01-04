@@ -8,13 +8,54 @@
 
 </blockquote>
 
-<div class="form-group">
+<!-- <div class="form-group">
  <div class="row" style="border: 1px solid #E7E9EA;margin:2% ">
 
   <div class="col-md-8" style="border-top: 1px solid #E7E9EA;">
-      <google-chart [data]="barChartData" style="margin-left: 2%" ></google-chart>
+      <google-chart  [data]="barChartData" style="margin-left: 2%" ></google-chart>
   </div>
   </div>
 
   
+</div> -->
+
+<div class="form-group">
+  <div class="row" style="border: 1px solid #E7E9EA;margin:2% ">
+ 
+   <div class="col-md-8" style="border-top: 1px solid #E7E9EA;">
+       <google-chart  [data]="lineChartData" style="margin-left: 2%" ></google-chart>
+   </div>
+
+    <div class="col-md-4" style="background-color: #F6F7F8;height: 622px">
+    <label for="options" style="display: block;font-size: 18px;margin-top:5%;font-weight: 200;">Managers</label>
+    <ng-multiselect-dropdown [placeholder]="'Select Managers'" [data]="managerListLineChart" [settings]="dropdownSettings"
+    (onSelect)="onItemSelect($event)" >
+    </ng-multiselect-dropdown>
+    <hr>
+
+   </div>
+ 
+   
+ </div>
 </div>
+
+
+  <div class="form-group">
+  <div class="row" style="border: 1px solid #E7E9EA;margin:2% ">
+ 
+   <div class="col-md-8" style="border-top: 1px solid #E7E9EA;">
+       <google-chart [data]="pieChartData" style="margin-left: 2%" ></google-chart>
+   </div>
+   <div class="col-md-4" style="background-color: #F6F7F8;height: 622px">
+    <label for="options" style="display: block;font-size: 18px;margin-top:5%;font-weight: 200;">Managers</label>
+    <ng-multiselect-dropdown [placeholder]="'Select Managers'" [data]="managerListPieChart" [settings]="dropdownSettings"
+    (onSelect)="onManagerSelect($event)" >
+    </ng-multiselect-dropdown>
+    <hr>
+
+   </div>
+ 
+   
+ </div>
+ </div> 
+

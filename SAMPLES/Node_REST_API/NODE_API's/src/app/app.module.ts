@@ -5,6 +5,7 @@ import { DemoServiceService } from './demo-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     Ng2GoogleChartsModule,
+    NgMultiSelectDropDownModule.forRoot(),
     HttpClientModule
   ],
   providers: [DemoServiceService],
