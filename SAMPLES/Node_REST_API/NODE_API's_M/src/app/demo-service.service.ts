@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 
 const httpOptions = {
@@ -27,11 +27,6 @@ export class DemoServiceService {
   }
   
 
-  getyearlyactivemanagers(): Observable<any>{
-    
-    return this.http.get( this.endpoint + 'barChartdata').pipe(map(this.extractData));
-
-   };
 
   getManagersCount():Observable<any>{
     return this.http.get(this.endpoint + 'getManagerCountList').pipe(map(this.extractData));

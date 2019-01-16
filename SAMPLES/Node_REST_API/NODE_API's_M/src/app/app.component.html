@@ -1,0 +1,73 @@
+<blockquote class="blockquote">
+  <h3 class="mb-0">
+      <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+        Employees Management Dashboard
+  </h3>
+ 
+    
+
+</blockquote>
+
+
+<div class="form-group">
+  <div class="row" style="border: 1px solid #E7E9EA;margin:2% ">
+ 
+   <div class="col-md-8" style="border-top: 1px solid #E7E9EA;">
+       <google-chart  [data]="barChartData" style="margin-left: 2%" ></google-chart>
+   </div>
+
+    <div class="col-md-4" style="background-color: #F6F7F8;height: 622px">
+    <label for="options" style="display: block;font-size: 18px;margin-top:5%;font-weight: 200;">Managers</label>
+    <ng-multiselect-dropdown [placeholder]="'Select Managers'" [data]="managerListLineChart" [settings]="dropdownSettings"
+    (onSelect)="onItemSelect($event)" (onSelectAll)="onItemSelectAll($event)" (onDeSelect)="OnItemDeSelect($event)" (onDeSelectAll)="onItemDeSelectAll($event)">
+    </ng-multiselect-dropdown>
+    <br>
+    <label for="usr">Enter Data:</label>
+    <input type="text" class="form-control" id="inputDataForBarChart">
+    <hr>
+
+   </div>
+ 
+   
+ </div>
+</div>
+
+
+  <div class="form-group">
+  <div class="row" style="border: 1px solid #E7E9EA;margin:2% ">
+ 
+   <div class="col-md-8" style="border-top: 1px solid #E7E9EA;">
+       <google-chart [data]="pieChartData" style="margin-left: 2%" ></google-chart>
+   </div>
+   <div class="col-md-4" style="background-color: #F6F7F8;height: 622px">
+    <label for="options" style="display: block;font-size: 18px;margin-top:5%;font-weight: 200;">Managers</label>
+    <ng-multiselect-dropdown [placeholder]="'Select Managers'" [data]="managerListPieChart" [settings]="dropdownSettings"
+    (onSelect)="onPieItemSelect($event)" (onSelectAll)="onPieItemSelectAll($event)" (onDeSelect)="OnPieItemDeSelect($event)" (onDeSelectAll)="onPieItemDeSelectAll($event)">
+    </ng-multiselect-dropdown>
+    <hr>
+
+   </div>
+ 
+   
+ </div>
+ </div> 
+
+ <div class="form-group">
+  <div class="row" style="border: 1px solid #E7E9EA;margin:2% ">
+ 
+   <div class="col-md-8" style="border-top: 1px solid #E7E9EA;">
+       <google-chart [data]="gaugeChartData" style="margin-left: 0%" ></google-chart>
+   </div>
+   <div class="col-md-4" style="background-color: #F6F7F8;height: 622px;margin-left: 0%">
+    <label for="options" style="display: block;font-size: 18px;margin-top:5%;font-weight: 200;">Managers</label>
+    <ng-multiselect-dropdown [placeholder]="'Select Managers'" [data]="managerListGaugeChart" [settings]="dropdownSettings"
+    (onSelect)="onGauageItemSelect($event)" (onSelectAll)="onGaugeItemSelectAll($event)" (onDeSelect)="OnGaugeItemDeSelect($event)" (onDeSelectAll)="onGaugeItemDeSelectAll($event)">
+    </ng-multiselect-dropdown>
+    <hr>
+
+   </div>
+ 
+   
+ </div>
+ </div> 
+

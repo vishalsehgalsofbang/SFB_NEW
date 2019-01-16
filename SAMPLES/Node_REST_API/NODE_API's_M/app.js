@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const parser = require('body-parser');
-const morgan = require('morgan');
+// const parser = require('body-parser');
+// const morgan = require('morgan');
 var oracledb = require('oracledb');
 var dbconfig = require('./dbconfig');
 var cors = require('cors');
@@ -25,79 +25,79 @@ app.get("/", (req, res) => {
 });
 
 // API for barcharts
-app.get("/barChartdata", (req, res) =>{
-    oracledb.getConnection(
-      dbconf_ele,
-        function(err, connection) {
-          if (err) {
-            console.error(err.message);
-            return;
-          }
-          connection.execute(`SELECT FULL_NAME, COUNT(DISTINCT(EMP_CODE)) AS COUNT_ACTIVE_MANGERS
-                              FROM TBL_EMPLOYEE
-                              WHERE IS_MANAGER = 'Y'
-                              GROUP BY FULL_NAME`,
-          function(err, result) {
-            if (err) {
-              console.error(err.message);
-              doRelease(connection);
-               return;
-            }
-            //res.set('Content-Type', 'aaplication/json');
-            //res.json({result});
-            res.send(result.rows);
-            console.log(result);
-            doRelease(connection);
-          });
+// app.get("/barChartdata", (req, res) =>{
+//     oracledb.getConnection(
+//       dbconf_ele,
+//         function(err, connection) {
+//           if (err) {
+//             console.error(err.message);
+//             return;
+//           }
+//           connection.execute(`SELECT FULL_NAME, COUNT(DISTINCT(EMP_CODE)) AS COUNT_ACTIVE_MANGERS
+//                               FROM TBL_EMPLOYEE
+//                               WHERE IS_MANAGER = 'Y'
+//                               GROUP BY FULL_NAME`,
+//           function(err, result) {
+//             if (err) {
+//               console.error(err.message);
+//               doRelease(connection);
+//                return;
+//             }
+//             //res.set('Content-Type', 'aaplication/json');
+//             //res.json({result});
+//             res.send(result.rows);
+//             console.log(result);
+//             doRelease(connection);
+//           });
          
-        });
+//         });
 
-        function doRelease(connection) {
-            connection.close(
-              function(err) {
-                if (err)
-                  console.error(err.message);
-              });
-          }
+//         function doRelease(connection) {
+//             connection.close(
+//               function(err) {
+//                 if (err)
+//                   console.error(err.message);
+//               });
+//           }
         
-      // res.send(result.rows);
+//       // res.send(result.rows);
 
     
         
-});
+// });
 
 // API for lineCharts
-app.get("/getManagerList", (req, res) =>{
-   oracledb.getConnection(
-     dbconf_ele,
-        function(err, connection){
-          if(err){
-            console.error(err.message);
-            return;
-          }
-          connection.execute(` SELECT  DISTINCT(empl.FULL_NAME) as MANAGER
-                               FROM  TBL_EMPLOYEE emp, TBL_EMPLOYEE empl
-                               WHERE emp.MGR_ID = empl.EMP_CODE ` ,
-          function(err, result){
-            if(err){
-              console.error(err.message);
-              doRelease(connection);
-              return;
-            }
-            res.send(result.rows);
-            console.log(result);
-            doRelease(connection);
-          });
-        });
-        function doRelease(connection){
-          connection.close(function(err){
-            if(err)
-            console.error(err.message);
-          });
-      } 
+// app.get("/getManagerList", (req, res) =>{
+//    oracledb.getConnection(
+//      dbconf_ele,
+//         function(err, connection){
+//           if(err){
+//             console.error(err.message);
+//             return;
+//           }
+//           connection.execute(` SELECT  DISTINCT(empl.FULL_NAME) as MANAGER
+//                                FROM  TBL_EMPLOYEE emp, TBL_EMPLOYEE empl
+//                                WHERE emp.MGR_ID = empl.EMP_CODE ` ,
+//           function(err, result){
+//             if(err){
+//               console.error(err.message);
+//               doRelease(connection);
+//               return;
+//             }
+//             res.send(result.rows);
+//             console.log(result);
+//             doRelease(connection);
+//           });
+//         });
+//         function doRelease(connection){
+//           connection.close(function(err){
+//             if(err)
+//             console.error(err.message);
+//           });
+//       } 
 
 
-});
+// });
 
 
 // // SAMPLE LOGIN API
